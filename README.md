@@ -1,4 +1,4 @@
-# Logic Server: My own Todo-MVC of server-side code
+# Logic Server: My own [TodoMVC](https://todomvc.com) of server-side code
 
 **My question:** What language and platform should I use to build microservices?
 
