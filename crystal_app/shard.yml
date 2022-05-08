@@ -1,0 +1,13 @@
+name: law_string
+version: 0.1.0
+
+authors:
+  - Robb Shecter <robb@public.law>
+
+targets:
+  law_string:
+    main: src/law_string.cr
+
+crystal: 1.4.1
+
+license: MIT
