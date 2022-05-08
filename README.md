@@ -2,4 +2,4 @@
 
 **My question:** What language and platform should I use to build microservices?
 
-To find out, I'm implementing some typical functions using many different frameworks.
+To find out, I'm re-implementing some typical functions I'd need using many different frameworks.
