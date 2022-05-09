@@ -2,6 +2,9 @@
 
 Comparing languages by re-implementing some typical functions.
 
+- [x] Text Service functions
+- [ ] GraphQL server
+
 
 ## Crystal
 
