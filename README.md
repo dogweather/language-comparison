@@ -8,7 +8,7 @@ Comparing languages by re-implementing some typical functions.
 
 **Code Samples**
 
-Here are samples of each language. Or browse the folders to see tests and config files.
+Here are samples of each language. Or browse the folders to also see tests and config files.
 
 * [Crystal](#Crystal)
 * [Elixir](#Elixir)
