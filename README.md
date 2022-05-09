@@ -7,6 +7,8 @@ To find out, I'm re-implementing some typical functions I'd need using many diff
 
 ## Code Comparsion
 
+### Crystal
+
 ```Crystal
 # Plaintext and HTML manipulation.
 module TextService
@@ -32,6 +34,8 @@ module TextService
   end
 end
 ```
+
+### Python
 
 ```python
 import re
