@@ -1,9 +1,9 @@
-defmodule ElixirApp.MixProject do
+defmodule TextService.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :elixir_app,
+      app: :text_service,
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
