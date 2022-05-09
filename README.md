@@ -82,6 +82,8 @@ end
 ## Python
 
 ```python
+"""Plaintext and HTML manipulation."""
+
 import re
 
 DOUBLE_QUOTED_TEXT = re.compile(r'"([^"]+)"')       # "Hello"
