@@ -3,11 +3,17 @@ require "./spec_helper"
 describe TextService do
   describe "add_typography()" do
     it "converts single quotes" do
-      expect("dog's life".add_typography).to eq "dog’s life"
+      actual   = TextService.add_typography("dog's life")
+      expected = "dog’s life"
+
+      actual.should eq expected 
     end
 
     it "converts double quotes" do
-      expect("\"Hey!\"".add_typography).to eq "“Hey!”"
+      actual   = TextService.add_typography("\"Hey!\"")
+      expected = "“Hey!”"
+
+      actual.should eq expected
     end
   end
 
@@ -15,7 +21,8 @@ describe TextService do
     it "creates simple fractions" do
       plaintext = "on 1/2 of an egg"
       expected = "on <sup>1</sup>&frasl;<sub>2</sub> of an egg"
-      expect(plaintext.add_html_typography).to eq expected
+
+      TextService.add_html_typography(plaintext).should eq expected
     end
   end
 end
