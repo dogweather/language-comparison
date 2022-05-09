@@ -12,7 +12,9 @@ Here are samples of each language. Or browse the folders to also compare the tes
 
 * [Crystal](#Crystal)
 * [Elixir](#Elixir)
+* OCaml — TBD
 * [Python](#Python)
+* Rust — TBD
 
 
 ## Crystal
