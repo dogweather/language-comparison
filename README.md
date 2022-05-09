@@ -8,7 +8,7 @@ Comparing languages by re-implementing some typical functions.
 
 **Code Samples**
 
-Browse the folders in the repo, or see the samples here:
+Here are samples of each language. Browse the folders to see tests and config files.
 
 * [Crystal](#Crystal)
 * [Python](#Python)
