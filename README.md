@@ -3,9 +3,39 @@
 Comparing languages by re-implementing some typical functions.
 
 
-## Code Comparsion
+## Crystal
 
-### Crystal
+```Crystal
+require "./spec_helper"
+
+
+describe TextService do
+  describe ".add_typography" do
+    it "converts single quotes" do
+      actual   = TextService.add_typography("dog's life")
+      expected = "dog’s life"
+
+      actual.should eq expected 
+    end
+
+    it "converts double quotes" do
+      actual   = TextService.add_typography("\"Hey!\"")
+      expected = "“Hey!”"
+
+      actual.should eq expected
+    end
+  end
+
+  describe ".add_html_typography" do
+    it "creates simple fractions" do
+      plaintext = "on 1/2 of an egg"
+      expected = "on <sup>1</sup>&frasl;<sub>2</sub> of an egg"
+
+      TextService.add_html_typography(plaintext).should eq expected
+    end
+  end
+end
+```
 
 ```Crystal
 # Plaintext and HTML manipulation.
@@ -33,7 +63,28 @@ module TextService
 end
 ```
 
-### Python
+
+## Python
+
+```python
+from text_service import add_html_typography, add_typography
+
+
+class TestAddTypography:
+    def test_converts_a_single_quote(_self):
+        assert add_typography("dog's life") == "dog’s life"
+
+    def test_converts_double_quotes(_self):
+        assert add_typography("\"Hey!\"") == "“Hey!”"
+
+
+class TestAddHtmlTypography:
+    def test_creates_simple_fractions(_self):
+      plaintext = "on 1/2 of an egg"
+      expected = "on <sup>1</sup>&frasl;<sub>2</sub> of an egg"
+
+      assert add_html_typography(plaintext) == expected
+```
 
 ```python
 import re
