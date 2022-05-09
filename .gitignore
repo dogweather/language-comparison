@@ -7,6 +7,10 @@
 *.pyc
 *__pycache__
 
+*_build
+
+*target
+
 
 #
 # Elixir Items
