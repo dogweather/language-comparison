@@ -6,6 +6,12 @@ Comparing languages by re-implementing some typical functions.
 - [ ] GraphQL server
 
 
+**Code Samples**
+
+* [Crystal](#Crystal)
+* [Python](#Python)
+
+
 ## Crystal
 
 ```Crystal
