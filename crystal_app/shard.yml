@@ -1,4 +1,4 @@
-name: law_string
+name: text_service
 version: 0.1.0
 
 authors:
@@ -6,7 +6,7 @@ authors:
 
 targets:
   law_string:
-    main: src/law_string.cr
+    main: src/text_service.cr
 
 crystal: 1.4.1
 

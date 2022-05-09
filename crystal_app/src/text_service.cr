@@ -1,4 +1,4 @@
-module LawString
+module TextService
   VERSION = "0.1.0"
 
   # Convert " " to “ ” and ' to ’.
