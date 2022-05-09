@@ -9,7 +9,7 @@ module TextService
   #
   def add_typography(text : String) : String
     text.gsub(/"([^"]+)"/, "“\\1”")
-        .gsub("'", "’")
+        .gsub('\'', '’')
   end
 
 
