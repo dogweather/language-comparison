@@ -1,18 +1,14 @@
+import String
+
 defmodule TextService do
   @moduledoc """
   Documentation for `TextService`.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> TextService.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  @spec add_typography(binary) :: binary
+  def add_typography(text) do
+    text
+    |> replace(~r/\"([^\"]+)\"/, "“\\1”")
+    |> replace(~r/'/, "’")
   end
 end
