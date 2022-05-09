@@ -14,7 +14,7 @@ Here are samples of each language. Or browse the folders to also compare the tes
 * [Elixir](#Elixir)
 * OCaml — TBD
 * [Python](#Python)
-* Rust — TBD
+* [Rust](#Rust)
 
 
 ## Crystal
@@ -105,4 +105,35 @@ def add_html_typography(text: str) -> str:
           Fractions using superscript and subscript.
     """
     return FRACTION.sub(r'<sup>\1</sup>&frasl;<sub>\2</sub>', text)
+```
+
+## Rust
+
+```rust
+/// Plaintext and HTML manipulation.
+
+use lazy_static::lazy_static;
+use regex::Regex;
+use std::borrow::Cow;
+
+lazy_static! {
+    static ref DOUBLE_QUOTED_TEXT: Regex = Regex::new(r#""(?P<content>[^"]+)""#).unwrap();
+    static ref FRACTION:           Regex = Regex::new(r"\b(\d+)/(\d+)\b").unwrap();
+}
+
+/// Return a new string enhanced with typographic characters:
+///     Single quotes: ’
+///     Double quotes: “”
+fn add_typography(text: &str) -> String {
+    DOUBLE_QUOTED_TEXT
+        .replace_all(text, "“$content”")
+        .replace("'", "’")
+}
+
+/// Add nicer typography that HTML can provide:
+///     Fractions using superscript and subscript.
+///
+fn add_html_typography(text: &str) -> Cow<str> {
+    FRACTION.replace_all(text, r"<sup>$1</sup>&frasl;<sub>$2</sub>")
+}
 ```
