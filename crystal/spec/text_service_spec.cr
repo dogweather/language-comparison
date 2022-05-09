@@ -1,16 +1,18 @@
 require "./spec_helper"
 
+include TextService
+
 describe TextService do
   describe "add_typography()" do
     it "converts single quotes" do
-      actual   = TextService.add_typography("dog's life")
+      actual   = add_typography("dog's life")
       expected = "dog’s life"
 
       actual.should eq expected 
     end
 
     it "converts double quotes" do
-      actual   = TextService.add_typography("\"Hey!\"")
+      actual   = add_typography("\"Hey!\"")
       expected = "“Hey!”"
 
       actual.should eq expected
@@ -22,7 +24,7 @@ describe TextService do
       plaintext = "on 1/2 of an egg"
       expected = "on <sup>1</sup>&frasl;<sub>2</sub> of an egg"
 
-      TextService.add_html_typography(plaintext).should eq expected
+      add_html_typography(plaintext).should eq expected
     end
   end
 end
