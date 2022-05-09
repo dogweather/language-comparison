@@ -1,7 +1,7 @@
 import re
 
-DOUBLE_QUOTED = re.compile(r'"([^"]+)"')
-FRACTION      = re.compile(r'\b(\d+)/(\d+)\b')
+DOUBLE_QUOTED_TEXT = re.compile(r'"([^"]+)"')       # "Hello"
+FRACTION           = re.compile(r'\b(\d+)/(\d+)\b') # 1/2
 
 
 def add_typography(text: str) -> str:
@@ -9,7 +9,7 @@ def add_typography(text: str) -> str:
           Single quotes: ’
           Double quotes: “”
     """
-    return DOUBLE_QUOTED.sub(r'“\1”', text).replace("'", "’")
+    return DOUBLE_QUOTED_TEXT.sub(r'“\1”', text).replace("'", "’")
 
 
 def add_html_typography(text: str) -> str:
