@@ -143,8 +143,8 @@ fn add_html_typography(text: &str) -> Cow<str> {
 ```swift
 import Foundation
 
-// Provide a higher-level API for regexes.
 extension String {
+    /// Provide a higher-level API for regexes.
     func gsub(_ regex: NSRegularExpression, _ replacement: String) -> String {
         return regex.stringByReplacingMatches(
             in: self,
@@ -175,5 +175,4 @@ func addTypography(text: String) -> String {
 func addHtmlTypography(text: String) -> String {
     return text.gsub(FRACTION, #"<sup>\1</sup>&frasl;<sub>\2</sub>"#)
 }
-
 ```

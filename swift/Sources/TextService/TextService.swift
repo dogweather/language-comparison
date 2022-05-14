@@ -1,7 +1,7 @@
 import Foundation
 
-// Provide a higher-level API for regexes.
 extension String {
+    /// Provide a higher-level API for regexes.
     func gsub(_ regex: NSRegularExpression, _ replacement: String) -> String {
         return regex.stringByReplacingMatches(
             in: self,
