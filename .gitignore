@@ -10,7 +10,7 @@
 *_build
 
 *target
-
+*.swiftpm
 
 #
 # Elixir Items
