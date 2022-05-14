@@ -17,6 +17,9 @@ let DOUBLE_QUOTES = try! NSRegularExpression(pattern: #""([^"]+)""#)
 let FRACTION =      try! NSRegularExpression(pattern: #"\b(\d+)/(\d+)\b"#)
 
 
+/// Return a new String enhanced with typographic characters:
+///   Single quotes: ’
+///   Double quotes: “ ”
 func addTypography(text: String) -> String {
     return text
         .gsub(SINGLE_QUOTE,  "’")
@@ -24,6 +27,8 @@ func addTypography(text: String) -> String {
 }
 
 
+/// Add nicer typography that HTML can provide:
+///   Fractions using superscript and subscript.
 func addHtmlTypography(text: String) -> String {
     return text.gsub(FRACTION, #"<sup>\1</sup>&frasl;<sub>\2</sub>"#)
 }
