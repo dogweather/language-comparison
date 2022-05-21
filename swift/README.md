@@ -1,3 +1,4 @@
 # TextService
 
-A description of this package.
+- [x] String functions
+- [ ] GraphQL server
