@@ -33,10 +33,12 @@ defmodule TextService do
     id_stack = []
     {:ok, sections} = Floki.parse_document(body_text)
 
-    IO.inspect(sections)
+    Floki.raw_html(add_ids_to_sections(id_stack, sections))
+  end
 
-    Enum.map(sections, convert_section / 1)
+  defp add_ids_to_sections(_id_stack, [only_section]) do
+    {"section", [{"class", css_classes}], children} = only_section
 
-    body_text
+    {"section", [{"class", css_classes}], children}
   end
 end

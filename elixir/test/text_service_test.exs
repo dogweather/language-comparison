@@ -44,13 +44,9 @@ defmodule TextServiceTest do
   <section class="level-1 non-meta outline" id="2-k"><h3>(k)</h3>Res ipsa loquitur</section>
   """
 
-  @without_ids_small_case ~s"""
-  <section class="level-0 non-meta outline"><h2>1.</h2>Res ipsa loquitur</section>
-  """
+  @without_ids_small_case ~s(<section class="level-0 non-meta outline"><h2>1.</h2>Res ipsa loquitur</section>)
 
-  @with_ids_small_case ~s"""
-  <section class="level-0 non-meta outline" id="1"><h2>1.</h2>Res ipsa loquitur</section>
-  """
+  @with_ids_small_case ~s(<section class="level-0 non-meta outline" id="1"><h2>1.</h2>Res ipsa loquitur</section>)
 
   test "handles small case" do
     assert add_pinpoint_ids(@without_ids_small_case) == @with_ids_small_case
