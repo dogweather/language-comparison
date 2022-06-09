@@ -1,5 +1,5 @@
+require Floki
 import String
-
 
 defmodule TextService do
   @moduledoc """
@@ -18,7 +18,6 @@ defmodule TextService do
     |> replace(~r/'/, "’")
   end
 
-
   @doc """
   Add nicer typography that HTML can provide:
     Fractions using superscript and subscript.
@@ -27,5 +26,17 @@ defmodule TextService do
   def add_html_typography(text) do
     text
     |> replace(~r/\b(\d+)\/(\d+)\b/, "<sup>\\1</sup>&frasl;<sub>\\2</sub>")
+  end
+
+  @spec add_pinpoint_ids(binary) :: binary
+  def add_pinpoint_ids(body_text) do
+    id_stack = []
+    {:ok, sections} = Floki.parse_document(body_text)
+
+    IO.inspect(sections)
+
+    Enum.map(sections, convert_section / 1)
+
+    body_text
   end
 end
