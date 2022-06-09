@@ -39,8 +39,7 @@ def add_pinpoint_ids(body_text: str) -> str:
         if level == 0:
             id_stack = []
         else:
-            times = len(id_stack) - level
-            for _ in range(times):
+            for _ in range(len(id_stack) - level):
                 id_stack.pop()
 
         # Push the heading onto the stack if needed.
