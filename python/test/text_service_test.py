@@ -1,4 +1,9 @@
-from text_service import add_html_typography, add_pinpoint_ids, add_typography
+from text_service import (
+    add_html_typography,
+    add_pinpoint_ids,
+    add_typography,
+    StatuteBody,
+)
 
 
 WITHOUT_IDS = """<section class="level-0 non-meta outline"><h2>1.</h2>No person shall be criminally responsible under this Statute for conduct prior to the entry into force of the Statute.</section>
@@ -38,7 +43,9 @@ WITH_IDS = """<section class="level-0 non-meta outline" id="1"><h2>1.</h2>No per
 
 class TestAddPinpointIds:
     def test_typical_case(_self):
-        assert add_pinpoint_ids(WITHOUT_IDS) == WITH_IDS
+        assert add_pinpoint_ids(StatuteBody(text=WITHOUT_IDS)) == StatuteBody(
+            text=WITH_IDS
+        )
 
 
 class TestAddTypography:

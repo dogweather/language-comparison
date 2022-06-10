@@ -3,6 +3,12 @@
 from lib2to3.pgen2.parse import ParseError
 from bs4 import BeautifulSoup
 import re
+from pydantic import BaseModel
+
+
+class StatuteBody(BaseModel):
+    text: str
+
 
 DOUBLE_QUOTED_TEXT = re.compile(r'"([^"]+)"')  # "Hello"
 FRACTION = re.compile(r"\b(\d+)/(\d+)\b")  # 1/2
@@ -23,9 +29,9 @@ def add_html_typography(text: str) -> str:
     return FRACTION.sub(r"<sup>\1</sup>&frasl;<sub>\2</sub>", text)
 
 
-def add_pinpoint_ids(body_text: str) -> str:
+def add_pinpoint_ids(body: StatuteBody) -> StatuteBody:
     id_stack = []
-    soup = BeautifulSoup(body_text, "html.parser")
+    soup = BeautifulSoup(body.text, "html.parser")
 
     for s in soup.find_all("section"):
         # Get the outline level.
@@ -55,4 +61,4 @@ def add_pinpoint_ids(body_text: str) -> str:
         # Create and save the pinpoint id.
         s["id"] = "-".join(id_stack)
 
-    return str(soup)
+    return StatuteBody(text=str(soup))
