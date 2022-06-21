@@ -9,6 +9,8 @@ lazy_static! {
     static ref DOUBLE_QUOTED_TEXT: Regex = Regex::new(r#""(?P<content>[^"]+)""#).unwrap();
     static ref SINGLE_QUOTE: Regex = Regex::new(r"'").unwrap();
     static ref FRACTION: Regex = Regex::new(r"\b(\d+)/(\d+)\b").unwrap();
+    static ref PINPOINT_CITE: Regex =
+        Regex::new(r#"">article (\d+)</a>, paragraph (\d+)"#).unwrap();
 }
 
 /// Return a new string enhanced with typographic characters:
@@ -39,8 +41,10 @@ fn add_html_typography(text: &str) -> Cow<str> {
     FRACTION.replace_all(text, r"<sup>$1</sup>&frasl;<sub>$2</sub>")
 }
 
+/// Add pinpoint citation cross-reference links.
+///
 fn add_pinpoint(text: &str) -> Cow<str> {
-    std::borrow::Cow::Borrowed(text)
+    PINPOINT_CITE.replace_all(text, r#"#$2">article $1, paragraph $2</a>"#)
 }
 
 #[cfg(test)]
