@@ -7,7 +7,7 @@ defmodule PinpointXref do
     String.replace(
       text,
       ~r/">article (\d+)<\/a>, paragraph (\d+)/,
-      "#\\g{2}\">article \\g{1}, paragraph \\g{2}</a>"
+      ~s[#\\g{2}">article \\g{1}, paragraph \\g{2}</a>]
     )
   end
 end
