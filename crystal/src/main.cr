@@ -1,11 +1,13 @@
 require "graphql"
 require "kemal"
 
+require "./pinpoint_xref"
+
 @[GraphQL::Object]
 class Query < GraphQL::BaseQuery
   @[GraphQL::Field]
-  def hello(name : String) : String
-    "Hello, #{name}!"
+  def add_pinpoint_xrefs(html : String) : String
+    PinpointXref.add_pinpoint(html)
   end
 end
 
