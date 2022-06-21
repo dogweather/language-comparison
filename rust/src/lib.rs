@@ -48,7 +48,9 @@ fn add_pinpoint(text: &str) -> Cow<str> {
 }
 
 //
+//
 // Tests
+//
 //
 
 #[cfg(test)]
