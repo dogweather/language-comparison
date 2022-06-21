@@ -47,6 +47,10 @@ fn add_pinpoint(text: &str) -> Cow<str> {
     PINPOINT_CITE.replace_all(text, r#"#$2">article $1, paragraph $2</a>"#)
 }
 
+//
+// Tests
+//
+
 #[cfg(test)]
 mod tests {
     use crate::{add_html_typography, add_pinpoint, add_typography};
