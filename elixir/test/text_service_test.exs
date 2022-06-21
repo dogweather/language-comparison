@@ -1,4 +1,4 @@
-import TextService, only: [add_typography: 1, add_html_typography: 1, add_pinpoint_ids: 1]
+import TextService, only: [add_typography: 1, add_html_typography: 1]
 
 defmodule TextServiceTest do
   @moduledoc """
@@ -47,14 +47,6 @@ defmodule TextServiceTest do
   @without_ids_small_case ~s(<section class="level-0 non-meta outline"><h2>1.</h2>Res ipsa loquitur</section>)
 
   @with_ids_small_case ~s(<section class="level-0 non-meta outline" id="1"><h2>1.</h2>Res ipsa loquitur</section>)
-
-  test "handles small case" do
-    assert add_pinpoint_ids(@without_ids_small_case) == @with_ids_small_case
-  end
-
-  # test "handles typical case" do
-  #   assert add_pinpoint_ids(@without_ids) == @with_ids
-  # end
 
   #
   # .add_typography
