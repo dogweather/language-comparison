@@ -11,6 +11,10 @@ class Query < GraphQL::BaseQuery
   end
 end
 
+#
+# GraphQL Boilerplate
+#
+
 schema = GraphQL::Schema.new(Query.new)
 
 post "/graphql" do |env|
