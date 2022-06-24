@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  schedule:
+    - cron: "0 3 * * 1" # Every monday at 3 AM
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        crystal: [0.36.1, latest, nightly]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Install Crystal
+        uses: oprypin/install-crystal@v1
+        with:
+          crystal: ${{ matrix.crystal }}
+
+      - name: Install ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get -yqq install chromium-chromedriver
+
+      - name: Download source
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: shards install
+        env:
+          SHARDS_OPTS: --ignore-crystal-version
+
+      - name: Run specs
+        run: crystal spec
+
+      - name: Check formatting
+        run: crystal tool format --check
+
+      - name: Run ameba linter
+        run: bin/ameba

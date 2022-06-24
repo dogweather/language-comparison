@@ -21,6 +21,7 @@ defmodule TextService do
   Add nicer typography that HTML can provide:
     Fractions using superscript and subscript.
   """
+  @spec add_html_typography(text :: binary) :: binary
   def add_html_typography(text) do
     text
     |> replace(~r/\b(\d+)\/(\d+)\b/, "<sup>\\1</sup>&frasl;<sub>\\2</sub>")

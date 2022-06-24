@@ -1,0 +1,13 @@
+name: graphql
+version: 0.4.0
+authors:
+  - Jakob Gillich <jakob@gillich.me>
+license: MIT
+description: |
+  GraphQL server library
+crystal: ">=1.0.0"
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+  kemal:
+    github: kemalcr/kemal
