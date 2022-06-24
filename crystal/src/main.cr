@@ -5,8 +5,8 @@ require "./pinpoint_xref"
 
 @[GraphQL::Object]
 class Query < GraphQL::BaseQuery
-  @[GraphQL::Field]
-  def add_pinpoint_xrefs(html : String) : String
+  @[GraphQL::Field(description: "Modify existing links when there's a pinpoint citation.")]
+  def add_pinpoint_links(html : String) : String
     PinpointXref.add_pinpoint(html)
   end
 end
