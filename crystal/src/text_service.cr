@@ -8,7 +8,8 @@ module TextService
   #  Double quotes: “”
   #
   def add_typography(text : String) : String
-    text.gsub(/"([^"]+)"/, "“\\1”")
+    text
+      .gsub(/"([^"]+)"/, "“\\1”")
       .gsub('\'', '’')
   end
 
