@@ -1,7 +1,7 @@
 module PinpointXref
   extend self
 
-  def add_pinpoint(html)
+  def add_pinpoint(html : String) : String
     html
       .gsub(
         /">article (\d+)<\/a>, paragraph (\d+)/,

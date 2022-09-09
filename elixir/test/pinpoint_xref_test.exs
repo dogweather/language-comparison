@@ -12,5 +12,8 @@ defmodule PinpointXrefTest do
 
   test "handles 'article X, paragraph Y'" do
     assert add_pinpoint(@without_pinpoint) == @with_pinpoint___
+
+    assert add_pinpoint(@without_pinpoint <> @without_pinpoint) ==
+             @with_pinpoint___ <> @with_pinpoint___
   end
 end

@@ -11,3 +11,9 @@ targets:
 crystal: 1.4.1
 
 license: MIT
+
+dependencies:
+  graphql:
+    github: graphql-crystal/graphql
+  kemal:
+    github: kemalcr/kemal
