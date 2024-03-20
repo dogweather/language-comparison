@@ -12,7 +12,7 @@ uvicorn = {extras = ["standard"], version = "^0.17.6"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
-black = {version = "^22.3.0", allow-prereleases = true}
+black = {version = "^24.3.0", allow-prereleases = true}
 pytest-watch = "^4.2.0"
 
 [build-system]
